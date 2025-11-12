@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/Logo.webp">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- swiper library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <title>CyberMentor | منصة التعلم الإلكتروني</title>
+</head>
+
+<body>
+    <!-- Start Navbar -->
+    <nav class="bg-gray-50 dark:bg-[#050B1E] border-gray-100 drop-shadow-2xl">
+        <div class="flex flex-wrap items-center justify-between max-w-7xl mx-auto p-4">
+            <a href="../dist/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="assets/images/Logo.webp" class="h-10 w-10" alt="Logo CyberMentor" />
+                <span
+                    class="self-center text-2xl font-semibold whitespace-nowrap bg-clip-text text-transparent animate-pulse bg-linear-to-r from-purple-900 via-cyan-400 to-blue-400">CyberMentor</span>
+            </a>
+
+            <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+                <button id="theme-toggle" type="button"
+                    class="focus:outline-none text-sm p-2.5 rounded-lg text-gray-500 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-800">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z" />
+                    </svg>
+                </button>
+
+                <button type="button"
+                    class="hidden lg:block ml-3 text-sm px-5 py-2.5 font-semibold rounded-3xl text-center border border-purple-600 text-purple-600 hover:text-white  hover:bg-purple-600 focus:ring-2 focus:outline-none focus:ring-purple-300 hover:shadow-2xl hover:shadow-purple-600/50 active:scale-[0.98] transition-all duration-300">
+                    Log In
+                </button>
+
+                <button type="button"
+                    class="btn hidden lg:inline-flex ml-3 text-sm px-5 py-2.5 font-semibold text-white text-center active:scale-[0.98] transition-all duration-300">
+                    <strong class="z-10">JOIN FOR FREE</strong>
+                    <div id="container-stars">
+                        <div id="stars"></div>
+                    </div>
+                    <div id="glow">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </button>
+
+                <button data-collapse-toggle="navbar-cta" type="button"
+                    class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-50 dark:hover:bg-gray-700 dark:focus:ring-gray-600 transition-all duration-300"
+                    aria-controls="navbar-cta" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-cta">
+                <ul
+                    class="flex flex-col lg:flex-row font-medium p-4 lg:p-0 mt-4 lg:mt-0 border border-gray-100 lg:border-0 rounded-lg lg:bg-gray-50 lg:space-x-8 rtl:space-x-reverse dark:bg-gray-800 lg:dark:bg-[#050B1E] dark:border-gray-700">
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Learn</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Practice</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Complete</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Education</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Business</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Start Breadcrumb Navigation -->
+    <section class="bg-white shadow-sm dark:bg-[#050B1E] transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-2 md:space-x-3 rtl:space-x-reverse">
+                    <li class="inline-flex items-center">
+                        <a href="index.html"
+                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white transition-colors duration-200">
+                        <i class="fas fa-home mr-2"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-chevron-left text-gray-400 mx-1 text-xs transform rtl:rotate-180"></i>
+                    <a href="#"
+                    class="text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-white transition-colors duration-200">Courses</a>
+                </li>
+                <li class="flex items-center" aria-current="page">
+                    <i class="fas fa-chevron-right text-gray-400 mx-2 text-xs"></i>
+                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">How to Build a Strong SOC
+                            Team?</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <!-- End Breadcrumb Navigation -->
+
+    <!-- Start Header course -->
+    <div class="bg-gray-50 dark:bg-[#050B1E]" aria-labelledby="course-title">
+
+        <div class="relative bg-cover bg-center" style="background-image: url(assets/images/bg.webp);">
+            <div class="absolute inset-0 bg-slate-900/70"></div>
+
+            <div class="relative z-10 max-w-7xl mx-auto py-20 px-4 md:px-6 lg:px-8">
+                <div class="flex flex-col-reverse md:flex-row justify-between">
+                    <div class="grow flex flex-col justify-center">
+                        <h1 class="my-10 font-bold text-3xl md:text-4xl text-left 
+                               bg-linear-to-r from-purple-900 via-blue-400 to-cyan-400 
+                               bg-clip-text text-transparent" id="course-title">
+                            How to Build a Strong SOC Team?
+                        </h1>
+                        <p class="mb-5 text-2xl text-gray-100 dark:text-gray-white">
+                            Learn about the essential components for building an effective Security Operations Center
+                            (SOC).
+                            Discover how people, processes, and technology work together to counter security threats...
+                        </p>
+                        <div class="flex items-start space-x-4 p-4">
+                            <img class="w-10 h-10 rounded-full" src="assets/images/blog-1.webp"
+                                alt="Jamil Hussein Tawileh" />
+                            <div class="font-medium text-gray-50">
+                                <span>Jameel Hussain Tawilah</span>
+                                <div class="text-sm text-gray-400 mt-0.5 flex items-center space-x-2">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <span>March 23, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+
+                <div class="lg:col-span-1">
+                    <div class="sticky top-4 bg-white dark:bg-slate-950 p-6 rounded-lg shadow-xl">
+                        <h3
+                            class="text-xl font-semibold text-gray-900 dark:text-white mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">
+                            Table of Contents</h3>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                            <li><a href="#people" class="hover:text-cyan-500 transition">1. People: The Core Talent</a>
+                            </li>
+                            <li><a href="#process" class="hover:text-cyan-500 transition">2. Process: The Operational
+                                    Flow</a></li>
+                            <li><a href="#technology" class="hover:text-cyan-500 transition">3. Technology: The
+                                    Essential Tools</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="md:col-span-2 lg:col-span-2 text-gray-600 dark:text-gray-300 text-lg leading-relaxed space-y-6">
+                    <div class="mb-8 p-4 bg-gray-100 dark:bg-slate-900 rounded-lg">
+                        <img src="assets/images/post-1.webp" alt="" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                    <p>
+                        The undeniable truth is that cyber attacks are inevitable, and no system is absolutely secure. A
+                        system that appears protected today might be vulnerable tomorrow.
+                    </p>
+
+                    <p
+                        class="text-xl font-semibold text-gray-900 dark:text-white p-4 border-l-4 border-cyan-500 bg-gray-100 dark:bg-slate-950">
+                        But what if you had a fully equipped team ready to face these threats? A team that works in
+                        perfect coordination, managing tools, processes, and decisions quickly and accurately to
+                        effectively repel attacks. What makes this team capable of maintaining your organization's
+                        security despite all the risks?
+                    </p>
+
+                    <p>
+                        The answer lies in three essential components, which, when properly coordinated, become an
+                        effective line of defense protecting you from any threat. What are these components that make
+                        your team invincible?
+                    </p>
+
+                    <p>
+                        The answer lies in three core components known as the "Success Triad" or People, Process,
+                        and Technology. These elements represent a "three-legged stool," and an SOC cannot function or
+                        succeed without any one of them.
+                    </p>
+
+                    <div class="my-8 p-4 flex justify-center rounded-lg">
+                        <img src="assets/images/post-2.webp" alt=""
+                            class="w-50 h-auto object-cover rounded-lg shadow-lg">
+                    </div>
+
+                    <div class="mt-10 pt-4 border-t border-gray-200 dark:border-gray-700 space-y-6">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mt-10 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700"
+                            id="people">
+                            1. People: The Core Talent
+                        </h2>
+
+                        <p>
+                            No blue team can succeed without qualified human elements who possess the necessary
+                            skills to perform tasks and interact effectively with processes and tools. The human element
+                            is the heart and soul of the blue team and cannot be replaced by any technology or
+                            administrative procedure.
+                        </p>
+
+                        <p>The process of selecting people is one of the most important steps in building a team.
+                            Individuals must be:</p>
+
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Capable of working under pressure.</li>
+                            <li>Possessing high intelligence and strong communication skills.</li>
+                            <li>Having a continuous development mindset.</li>
+                        </ul>
+
+                        <blockquote
+                            class="text-xl italic font-semibold text-gray-900 dark:text-white border-l-4 border-purple-500 pl-4 py-2 bg-gray-100 dark:bg-slate-950">
+                            Here, quality surpasses quantity — having one person with drive and knowledge can make a
+                            huge difference to the team.
+                        </blockquote>
+
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4">
+                            The "T-Shaped" Analyst
+                        </h3>
+
+                        <p>
+                            The ideal analyst is known as the “T-Shaped Person”, as mentioned in the book <cite
+                                class="font-medium text-cyan-500">Ten Strategies of a World-Class Cybersecurity
+                                Operations Center</cite>.
+
+                            [Image of T-Shaped Professional Diagram]
+
+                        </p>
+
+                        <p>This is the individual who:</p>
+                        <ol class="list-decimal list-inside space-y-2 ml-4">
+                            <li>Possesses broad general knowledge in the field of information technology.</li>
+                            <li>Has the ability to specialize and delve deep into a specific technical area, such as
+                                digital forensics.</li>
+                            <li>Can write code, read and analyze software, and prepare detailed analytical reports.</li>
+                            <li>Has a positive energy that motivates the rest of the team.</li>
+                        </ol>
+
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4">
+                            CyberMentor Educational Platform:
+                        </h3>
+                        <p>
+                            Stemming from the importance of the human element, we at the CyberMentor Educational
+                            Platform work to train and qualify competencies through specialized professional
+                            bootcamps. Our goal is to build a strong base of Arab analysts and specialists capable of
+                            professionally leading SOC operations centers.
+                        </p>
+
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 pt-10 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700"
+                            id="process">
+                            2. Process: The Roadmap for Every Team Member
+                        </h2>
+
+                        <p>
+                            Processes within the SOC center define the daily tasks for every team member: What to
+                            do? How? and When?
+                        </p>
+
+                        <p>
+                            Processes cover everything related to incident response, forensic analysis, alert
+                            handling, threat management, and documentation.
+                        </p>
+
+                        <p>
+                            In large organizations, specific roles like Threat Intelligence gathering can be
+                            assigned to specialists. However, in smaller organizations, individuals must be flexible and
+                            prepared to switch "hats" as needed.
+                        </p>
+
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4">
+                            The Role of Management:
+                        </h3>
+                        <p>SOC managers act as a "Two-Way Firewall":</p>
+
+                        <ul class="list-disc list-inside space-y-2 ml-4 p-4 rounded-lg bg-gray-100 dark:bg-slate-950">
+                            <li class="text-sm font-semibold">Prevent distracting the team with random requests from
+                                senior
+                                management.</li>
+                            <li class="text-sm font-semibold">Communicate successes and critical issues to leadership in
+                                a
+                                concise and effective manner.</li>
+                            <li class="text-sm font-semibold">Help set goals and ensure the team remains focused on
+                                priority
+                                tasks.</li>
+                        </ul>
+
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 pt-10 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700"
+                            id="technology">
+                            3. Technology: The Enabler, Not the Substitute
+                        </h2>
+
+                        <p>
+                            Technology in the SOC center is not considered a substitute for the human analyst, but
+                            rather a tool that enables and improves their performance.
+                        </p>
+
+                        <p class="text-xl italic border-l-4 border-blue-500 pl-4 py-2 bg-gray-100 dark:bg-slate-950">
+                            The primary function of the analyst is analysis, critical thinking, and decision-making
+                            — tasks that tools cannot perform.
+                        </p>
+
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4">
+                            SOC Team Organization: Roles, Tiers, and Responsibilities
+                        </h3>
+                        <p>
+                            SOC teams are usually organized within a hierarchical structure that includes three main
+                            tiers:
+                        </p>
+
+                        <h4 class="text-xl font-bold text-cyan-600 dark:text-cyan-400 mt-6 mb-2">Tier 1: Alert Triage
+                        </h4>
+                        <p>
+                            Dedicated to beginners, this tier involves alert triage, collecting initial data, and
+                            providing initial reports. Access tools are limited at this level.
+                        </p>
+
+                        <h4 class="text-xl font-bold text-cyan-600 dark:text-cyan-400 mt-6 mb-2">Tier 2 and Tier 3:
+                            Advanced Analysis</h4>
+                        <p>
+                            As analysts gain experience, they are promoted to higher levels where they can handle more
+                            complex analytical tasks, such as:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 ml-4">
+                            <li>Forensic memory analysis.</li>
+                            <li>Malware reverse engineering.</li>
+                            <li>Direct engagement with advanced threats.</li>
+                        </ul>
+
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4">
+                            Understanding Tools and the Operating Environment
+                        </h3>
+                        <p>
+                            One of the most significant challenges is understanding the relationship between different
+                            tools. Therefore, we always start by explaining each system simply and abstractly.
+                        </p>
+
+                        <div class="bg-gray-100 dark:bg-slate-950 p-6 rounded-lg shadow-inner mt-4">
+                            <h4 class="text-xl font-bold text-purple-900 dark:text-purple-400 mb-3">Example: Intrusion
+                                Detection System (IDS)</h4>
+                            <ol class="list-decimal list-inside space-y-1 ml-4">
+                                <li>Input: Network traffic data.</li>
+                                <li>Processing: Comparison against known patterns and signatures.</li>
+                                <li>Output: Alerts displayed to the security team.</li>
+                            </ol>
+                        </div>
+
+                        <h2
+                            class="text-3xl font-bold text-gray-900 dark:text-gray-100 pt-10 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">
+                            In Conclusion:
+                        </h2>
+
+                        <p
+                            class="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-4 p-4 border-y-2 border-cyan-500 bg-gray-100 dark:bg-slate-950">
+                            Building a successful Cybersecurity Operations Center (SOC) depends on the true integration
+                            of trained people, clear processes, and effective tools.
+                        </p>
+
+                        <p>
+                            If you aspire to build or lead a professional SOC team, start with the foundation: build
+                            the team, organize the processes, and choose the tools carefully.
+                        </p>
+
+                        <!-- Social Media Sharing -->
+                        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-700">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Share This Article</h3>
+                            <div class="flex flex-wrap gap-4">
+                                <!-- Facebook -->
+                                <a type="button" class="Btn social-icon group" aria-label="Share on Facebook">
+                                    <span class="Container">
+                                        <i
+                                            class="fab fa-facebook-f text-gray-50 text-xl group-hover:text-white transition-colors duration-300"></i>
+                                    </span>
+                                    <span class="BG"></span>
+                                </a>
+
+                                <!-- Twitter -->
+                                <a type="button" class="Btn social-icon group" aria-label="Share on Twitter">
+                                    <span class="Container">
+                                        <i
+                                            class="fab fa-twitter text-gray-50 text-xl group-hover:text-white transition-colors duration-300"></i>
+                                    </span>
+                                    <span class="BG"></span>
+                                </a>
+
+                                <!-- LinkedIn -->
+                                <a type="button" class="Btn social-icon group" aria-label="Share on LinkedIn">
+                                    <span class="Container">
+                                        <i
+                                            class="fab fa-linkedin-in text-gray-50 text-xl group-hover:text-white transition-colors duration-300"></i>
+                                    </span>
+                                    <span class="BG"></span>
+                                </a>
+
+                                <!-- WhatsApp -->
+                                <a type="button" class="Btn social-icon group" aria-label="Share on WhatsApp">
+                                    <span class="Container">
+                                        <i
+                                            class="fab fa-whatsapp text-gray-50 text-xl group-hover:text-white transition-colors duration-300"></i>
+                                    </span>
+                                    <span class="BG"></span>
+                                </a>
+
+                                <!-- Share -->
+                                <a type="button" class="Btn social-icon group" aria-label="Share">
+                                    <span class="Container">
+                                        <i
+                                            class="fas fa-share-nodes text-gray-50 text-xl group-hover:text-white transition-colors duration-300"></i>
+                                    </span>
+                                    <span class="BG"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="my-12 border-t border-gray-200 dark:border-slate-800">
+
+            <!-- Start Related Post -->
+            <section class="mt-12 md:p-10 bg-gray-50 dark:bg-[#050B1E]">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="bg-linear-to-r from-purple-900 via-cyan-400 to-blue-400 bg-clip-text text-transparent text-3xl md:text-5xl font-extrabold leading-12 md:leading-14 mb-4">
+                            From Our Articles
+                        </h2>
+                        <div class="w-20 h-1 bg-blue-400 mx-auto"></div>
+                    </div>
+
+                    <div class="Blogs grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        <article
+                            class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-slate-950 dark:border-gray-700">
+                            <h2 class="mb-2 text-md font-extrabold tracking-tight text-gray-900 dark:text-white">
+                                <a href="#">What do you know about the Transmission Control Protocol (TCP)?</a>
+                            </h2>
+                            <p class="mb-5 font-light text-gray-500 dark:text-gray-100">
+                                Have you ever wondered about the journey your email takes across the internet to reach
+                                your friends on the other side of the world with incredible speed and perfect accuracy,
+                                overcoming all aerial barriers and long distances?!
+                            </p>
+                            <div class="flex items-end justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fa-solid fa-user text-slate-400 dark:text-gray-50"></i>
+                                    <span class="text-sm font-bold dark:text-white">
+                                        Sham Qawas
+                                        <div class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                                            July 15, 2024
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <button>
+                                    <a href="single-post.html"
+                                        class="inline-flex items-center justify-center bg-cyan-500/30 text-cyan-400 border border-cyan-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
+                                        <span
+                                            class="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                                        Read more
+                                        <i
+                                            class="ml-2 fa-regular fa-square-caret-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                                    </a>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article
+                            class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-slate-950 dark:border-gray-700">
+                            <h2 class="mb-2 text-md font-extrabold tracking-tight text-gray-900 dark:text-white">
+                                <a href="#">Cybersecurity job roles – The Blue Team</a>
+                            </h2>
+                            <p class="mb-5 font-light text-gray-500 dark:text-gray-100">
+                                The Blue Team, or commonly known globally by the term 'Blue Team', is the first line of
+                                defense against cyberattacks. It is a group of individuals responsible for protecting
+                                software, systems, and networks from cyber breaches and attacks.
+                            </p>
+                            <div class="flex items-end justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fa-solid fa-user text-slate-400 dark:text-gray-50"></i>
+                                    <span class="text-sm font-bold dark:text-white">
+                                        Mohamad Tajer
+                                        <div class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                                            May 3, 2024
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <button>
+                                    <a href="single-post.html"
+                                        class="inline-flex items-center justify-center bg-cyan-500/30 text-cyan-400 border border-cyan-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
+                                        <span
+                                            class="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                                        Read more
+                                        <i
+                                            class="ml-2 fa-regular fa-square-caret-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                                    </a>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article
+                            class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-slate-950 dark:border-gray-700">
+                            <h2 class="mb-2 text-md font-extrabold tracking-tight text-gray-900 dark:text-white">
+                                <a href="#">Cybersecurity Hardening: The Proactive Approach to System Protection</a>
+                            </h2>
+                            <p class="mb-5 font-light text-gray-500 dark:text-gray-100">
+                                In an increasingly complex digital world, cybersecurity has become a more essential need
+                                than ever before. In previous years, most companies considered cybersecurity a luxury...
+                            </p>
+                            <div class="flex items-end justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fa-solid fa-user text-slate-400 dark:text-gray-50"></i>
+                                    <span class="text-sm font-bold dark:text-white">
+                                        Rami Sharif
+                                        <div class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                                            April 22, 2024
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <button>
+                                    <a href="single-post.html"
+                                        class="inline-flex items-center justify-center bg-cyan-500/30 text-cyan-400 border border-cyan-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
+                                        <span
+                                            class="bg-cyan-400 shadow-cyan-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                                        Read more
+                                        <i
+                                            class="ml-2 fa-regular fa-square-caret-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                                    </a>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!-- End Related Post -->
+
+            <!-- Start Add Comment -->
+            <div class="mt-20 pt-10 border-t border-gray-200 dark:border-gray-700 max-w-4xl mx-auto">
+
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 border-b pb-2 border-cyan-500">
+                    Leave a Comment
+                </h2>
+
+                <form action="#" method="POST" class="space-y-6">
+
+                    <div>
+                        <label for="comment" class="sr-only">Comment</label>
+                        <textarea id="comment" name="comment" rows="6" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 
+                             dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-400 p-4 
+                             placeholder:text-gray-500 transition duration-150 ease-in-out"
+                            placeholder="Write your comment here..."></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                        <div>
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" id="name" name="name" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 
+                            dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-400 p-3 
+                              placeholder:text-gray-500 transition duration-150 ease-in-out" placeholder="Name *"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" id="email" name="email" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 
+                              dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-400 p-3 
+                              placeholder:text-gray-500 transition duration-150 ease-in-out" placeholder="Email *"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="website" class="sr-only">Website URL</label>
+                            <input type="url" id="website" name="website" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 
+                              dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-400 p-3 
+                              placeholder:text-gray-500 transition duration-150 ease-in-out" placeholder="Website URL">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+
+                        <div class="flex items-center">
+                            <input id="save-info" name="save-info" type="checkbox"
+                                class="h-4 w-4 text-cyan-600 border-gray-300 rounded focus:ring-cyan-500 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="save-info"
+                                class="ml-2 block text-sm text-gray-900 dark:text-gray-300 cursor-pointer select-none">
+                                Save my name, email, and website in this browser for the next time I comment.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full sm:w-auto px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-cyan-600 
+                           hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 
+                           dark:focus:ring-offset-gray-900 transition duration-150 ease-in-out">
+                            Add Comment
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <!-- End Add Comment -->
+
+        </div>
+    </div>
+    <!-- End Header course -->
+
+    <!-- Start Footer Section -->
+    <footer class="py-10 bg-[#050B1E] border-t border-cyan-400">
+        <div
+            class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-4 sm:px-6 lg:px-8 text-center md:text-left">
+
+            <div class="first-section flex flex-col items-center md:items-start">
+                <a href="../dist/index.html"
+                    class="flex items-center space-x-3 rtl:space-x-reverse justify-center md:justify-start">
+                    <img src="assets/images/Logo.webp" class="h-10 w-10" loading="lazy" alt="Logo CyberMentor" />
+                    <span class="logo bg-clip-text text-transparent animate-pulse self-center text-2xl font-semibold whitespace-nowrap
+                           bg-linear-to-r from-purple-900 via-cyan-400 to-blue-400">CyberMentor</span>
+                </a>
+                <p class="mt-5 text-2xl lg:text-xl text-gray-300 w-full">
+                    Leading cybersecurity solutions provider protecting businesses worldwide.
+                </p>
+                <h3 class="text-gray-300 text-md font-bold mt-4">
+                    Subscribe to our Newsletter
+                </h3>
+                <p class="mt-2 text-md text-gray-300 w-full">
+                    Stay updated with the latest security insights and threats.
+                </p>
+
+                <form class="w-full max-w-md my-5 mx-auto md:mx-0">
+                    <label for="default-email" class="mb-2 text-sm font-medium sr-only text-white"></label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 rtl:inset-x-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 20 16">
+                                <path
+                                    d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path
+                                    d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                        </div>
+                        <input type="email" id="default-email"
+                            class="caret-gray-100 text-gray-100 block w-full p-4 ps-10 text-sm border rounded-3xl bg-slate-950 border-gray-700 placeholder-gray-400"
+                            placeholder="Enter your email..." required />
+                        <button type="submit"
+                            class="btn text-white text-[12px] md:text-md absolute end-2.5 bottom-2 px-2 py-2 cursor-pointer">
+                            <strong class="z-10">SUBSCRIBE</strong>
+                            <div id="container-stars">
+                                <div id="stars"></div>
+                            </div>
+                            <div id="glow">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="second-section">
+                <h3 class="text-gray-300 text-2xl font-bold mb-4">
+                    Learning
+                </h3>
+                <ul class="flex flex-col gap-2 items-center md:items-start">
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Cloud Security</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">DevSecOps</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Vulnerability
+                            Management</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Managed SOC</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Penetration Testing</a>
+                    </li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Cyber Awareness
+                            Training</a></li>
+                </ul>
+            </div>
+
+            <div class="second-section">
+                <h3 class="text-gray-300 text-2xl font-bold mb-4">
+                    Company
+                </h3>
+                <ul class="flex flex-col gap-2 items-center md:items-start">
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">About Us</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Tools</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Internships</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Blog</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Work at CyberMentor</a>
+                    </li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Careers in Cyber</a></li>
+                </ul>
+            </div>
+
+            <div class="three-section">
+                <h3 class="text-gray-300 text-2xl font-bold mb-4">
+                    CyberMentorverse
+                </h3>
+                <ul class="flex flex-col gap-2 items-center md:items-start">
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Books</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Platform</a></li>
+                    <li class="text-gray-300 text-lg">
+                        <a class="hover:text-cyan-400" href="">Follow Us</a>
+                        <div class="flex gap-5 my-5 justify-center md:justify-start">
+                            <button class="Btn instagram-btn">
+                                <span class="Container"><i class="fa-brands fa-instagram"></i></span>
+                                <span class="BG"></span>
+                            </button>
+                            <button class="Btn facebook-btn">
+                                <span class="Container"><i class="fa-brands fa-square-facebook"></i></span>
+                                <span class="BG"></span>
+                            </button>
+                            <button class="Btn linkedin-btn">
+                                <span class="Container"><i class="fa-brands fa-linkedin"></i></span>
+                                <span class="BG"></span>
+                            </button>
+                            <button class="Btn github-btn">
+                                <span class="Container w-20"><i class="fa-brands fa-github"></i></span>
+                                <span class="BG"></span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto flex flex-col items-center mt-8 px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-cyan-500 w-[95%]"></div>
+            <p class="mt-4 text-xl md:text-2xl lg:text-lg text-slate-300">All systems operational</p>
+            <p class="mt-2 text-xl md:text-2xl lg:text-lg text-slate-300">&copy; 2025 Cyberpedia. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

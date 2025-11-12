@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            line-height: 1.25;
+        }
+
+        [role="tab"]:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="assets/images/Logo.webp">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- swiper library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <title>CyberMentor | منصة التعلم الإلكتروني</title>
+</head>
+
+<body>
+    <!-- Start Navbar -->
+    <nav class="bg-gray-50 dark:bg-[#050B1E] border-gray-100 drop-shadow-2xl">
+        <div class="flex flex-wrap items-center justify-between max-w-7xl mx-auto p-4">
+            <a href="../dist/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="assets/images/Logo.webp" class="h-10 w-10" alt="Logo CyberMentor" />
+                <span
+                    class="self-center text-2xl font-semibold whitespace-nowrap bg-clip-text text-transparent animate-pulse bg-linear-to-r from-purple-900 via-cyan-400 to-blue-400">CyberMentor</span>
+            </a>
+
+            <div class="flex lg:order-2 space-x-3 lg:space-x-0 rtl:space-x-reverse">
+                <button id="theme-toggle" type="button"
+                    class="focus:outline-none text-sm p-2.5 rounded-lg text-gray-500 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-800">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z" />
+                    </svg>
+                </button>
+
+                <button type="button"
+                    class="hidden lg:block ml-3 text-sm px-5 py-2.5 font-semibold rounded-3xl text-center border border-purple-600 text-purple-600 hover:text-white  hover:bg-purple-600 focus:ring-2 focus:outline-none focus:ring-purple-300 hover:shadow-2xl hover:shadow-purple-600/50 active:scale-[0.98] transition-all duration-300">
+                    Log In
+                </button>
+
+                <button type="button"
+                    class="btn hidden lg:inline-flex ml-3 text-sm px-5 py-2.5 font-semibold text-white text-center active:scale-[0.98] transition-all duration-300">
+                    <strong class="z-10">JOIN FOR FREE</strong>
+                    <div id="container-stars">
+                        <div id="stars"></div>
+                    </div>
+                    <div id="glow">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </button>
+
+                <button data-collapse-toggle="navbar-cta" type="button"
+                    class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-50 dark:hover:bg-gray-700 dark:focus:ring-gray-600 transition-all duration-300"
+                    aria-controls="navbar-cta" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-cta">
+                <ul
+                    class="flex flex-col lg:flex-row font-medium p-4 lg:p-0 mt-4 lg:mt-0 border border-gray-100 lg:border-0 rounded-lg lg:bg-gray-50 lg:space-x-8 rtl:space-x-reverse dark:bg-gray-800 lg:dark:bg-[#050B1E] dark:border-gray-700">
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Learn</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Practice</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Complete</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Education</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Business</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 lg:p-0 rounded-sm text-gray-900 dark:text-white hover:bg-gray-100 lg:hover:bg-transparent hover:text-blue-800 dark:hover:text-blue-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 transition-all duration-300">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Start Header course -->
+    <section class="bg-gray-100 dark:bg-slate-950 section-padding" aria-labelledby="course-title">
+        <div
+            class="page-header mx-auto flex max-w-7xl flex-col-reverse justify-between px-4 sm:px-6 lg:px-8 md:flex-row">
+            <div class="flex grow flex-col justify-center">
+                <h1
+                    class="bg-linear-to-r my-10 text-center font-bold text-transparent md:text-left text-xl md:text-4xl bg-clip-text from-purple-900 via-blue-400 to-cyan-400">
+                    Introduction to Cybersecurity Essentials
+                </h1>
+
+                <p
+                    class="mb-3 text-center md:text-left text-sm md:text-xl leading-relaxed text-gray-800 dark:text-gray-200">
+                    This course is part of multiple programs.
+                    <span>
+                        <a class="text-blue-400 underline" href="#">Learn more</a>
+                    </span>
+                </p>
+
+                <div class="mb-8 flex justify-center md:justify-start">
+                    <img src="assets/images/logo-course.webp" class="mr-2 size-8 rounded-full" alt="Logo Course"
+                        loading="lazy" />
+                    <span class="text-xl font-bold text-gray-900 dark:text-gray-50">Instructor</span>
+                    <a class="ml-2 text-xl text-blue-400 underline" href="#">IBM Skills Network Team</a>
+                </div>
+
+                <div class="relative pt-12 md:pt-16 lg:pt-20">
+                    <div class="absolute inset-x-0 -top-2 md:top-5 grid grid-cols-1 md:grid-cols-5 w-full max-w-full
+                            rounded-xl border shadow-xl p-8 md:p-8 
+                            bg-gray-50 dark:bg-slate-900 border-blue-900/50 dark:border-cyan-500/50 
+                            shadow-blue-900/20 dark:shadow-cyan-500/20">
+                        <div class="flex flex-col">
+                            <span class="text-xl md:text-sm lg:text-xl font-bold text-cyan-400">4 courses</span>
+                            <span class="text-sm md:text-xs lg:text-sm text-gray-400">Gain insight into a topic and
+                                learn the
+                                fundamentals.</span>
+                        </div>
+
+                        <div class="flex flex-col md:border-s pt-4 mt-4 md:pt-0 md:mt-0 md:ps-4 
+                                border-t border-slate-300 dark:border-slate-800 
+                                md:border-t-0 md:border-slate-950 md:dark:border-gray-50">
+                            <span class="text-xl md:text-sm lg:text-xl font-bold text-yellow-400">
+                                4.8 <i class="fa-solid fa-star text-sm"></i>
+                            </span>
+                            <span class="text-sm md:text-xs lg:text-sm text-gray-400">Reviews (1.085)</span>
+                        </div>
+
+                        <div class="flex flex-col md:border-s pt-4 mt-4 md:pt-0 md:mt-0 md:ps-4
+                                border-t border-slate-300 dark:border-slate-800 
+                                md:border-t-0 md:border-slate-950 md:dark:border-gray-50">
+                            <span class="text-xl md:text-sm lg:text-xl font-bold text-blue-400">Beginner level</span>
+                            <span class="text-sm md:text-xs lg:text-sm text-gray-400">Recommended experience</span>
+                        </div>
+
+                        <div class="flex flex-col md:border-s pt-4 mt-4 md:pt-0 md:mt-0 md:ps-4
+                                border-t border-slate-300 dark:border-slate-800 
+                                md:border-t-0 md:border-slate-950 md:dark:border-gray-50">
+                            <span class="text-xl md:text-sm lg:text-xl font-bold text-blue-400">Flexible schedule</span>
+                            <span class="text-sm md:text-xs lg:text-sm text-gray-400">1 week at 10 hours a week Learn at
+                                your own pace</span>
+                        </div>
+
+                        <div class="flex flex-col md:border-s pt-4 mt-4 md:pt-0 md:mt-0 md:ps-4
+                                border-t border-slate-300 dark:border-slate-800 
+                                md:border-t-0 md:border-slate-950 md:dark:border-gray-50">
+                            <span class="text-xl md:text-sm lg:text-xl font-bold text-purple-900"><i
+                                    class="fa-solid fa-thumbs-up"></i>
+                                97%</span>
+                            <span class="text-sm md:text-xs lg:text-sm text-gray-400">Most learners liked this
+                                course</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Header course -->
+
+    <!-- Start Content course -->
+    <section class="main-content bg-gray-50 dark:bg-[#050B1E]">
+        <div class="inner-content max-w-7xl mx-auto flex justify-between gap-5 px-4">
+            <div class="content grow my-[450px] md:my-30 lg:my-24">
+                <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                    <ul class="flex flex-nowrap overflow-x-auto -mb-px text-sm font-medium text-center" id="default-tab"
+                        data-tabs-toggle="#default-tab-content" role="tablist">
+                        <li class="me-2 shrink-0" role="presentation">
+                            <button
+                                class="inline-block text-lg p-4 border-b-2 rounded-t-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about"
+                                aria-selected="false" aria-label="Course-Information">About</button>
+                        </li>
+
+                        <li class="me-2 shrink-0" role="presentation">
+                            <button
+                                class="inline-block text-lg p-4 border-b-2 rounded-t-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                id="outcomes-tab" data-tabs-target="#outcomes" type="button" role="tab"
+                                aria-controls="outcomes" aria-selected="false"
+                                aria-label="Learning-Results">Outcomes</button>
+                        </li>
+
+                        <li class="me-2 shrink-0" role="presentation">
+                            <button
+                                class="inline-block text-lg p-4 border-b-2 rounded-t-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                id="modules-tab" data-tabs-target="#modules" type="button" role="tab"
+                                aria-controls="modules" aria-selected="false"
+                                aria-label="Course-Module">Modules</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="default-tab-content">
+                    <div class="hidden p-4 rounded-lg" id="about" role="tabpanel" aria-labelledby="about-tab">
+                        <h3
+                            class="text-2xl text-gray-900 dark:text-gray-50 font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700">
+                            What you'll learn..</h3>
+                        <div class="p-0 sm:p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                            <div>
+                                <ul class="flex flex-col gap-4 text-gray-700 dark:text-gray-300">
+                                    <li class="flex gap-3 items-start mb-3 transition-transform hover:translate-x-1">
+                                        <div>
+                                            <i class="fa-solid fa-check text-xl text-blue-500"></i>
+                                        </div>
+                                        <p class="text-lg dark:text-gray-50 leading-relaxed">
+                                            Learn how to identify common cybersecurity threats, including malware,
+                                            social engineering, breaches, and other attack vectors.
+                                        </p>
+                                    </li>
+                                    <li class="flex gap-3 items-start mb-3 transition-transform hover:translate-x-1">
+                                        <div>
+                                            <i class="fa-solid fa-check text-xl text-blue-500"></i>
+                                        </div>
+                                        <p class="text-lg dark:text-gray-50 leading-relaxed">
+                                            Explore physical security, environmental safeguards, and access control
+                                            measures used to prevent unauthorized access and ensure business
+                                            continuity.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <ul class="flex flex-col gap-5 text-gray-700 dark:text-gray-300">
+                                    <li class="flex gap-3 items-start mb-3 transition-transform hover:translate-x-1">
+                                        <div>
+                                            <i class="fa-solid fa-check text-xl text-blue-500"></i>
+                                        </div>
+                                        <p class="text-lg dark:text-gray-50 leading-relaxed">
+                                            Install software updates and patches, and apply authentication,
+                                            encryption, and device-hardening techniques to protect sensitive
+                                            information.
+                                        </p>
+                                    </li>
+                                    <li class="flex gap-3 items-start mb-3 transition-transform hover:translate-x-1">
+                                        <div>
+                                            <i class="fa-solid fa-check text-xl text-blue-500"></i>
+                                        </div>
+                                        <p class="text-lg dark:text-gray-50 leading-relaxed">
+                                            Apply cybersecurity best practices using strong password creation and
+                                            management strategies, and identify use cases for encryption.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3
+                                class="text-2xl text-gray-900 dark:text-gray-50 font-bold my-6 pb-2 border-b border-gray-200 dark:border-gray-700">
+                                Skills you'll gain</h3>
+                            <div class="flex flex-col gap-4 my-6">
+                                <div class="flex gap-4 flex-wrap">
+                                    <span
+                                        class="px-4 py-2 bg-gray-100 text-slate-950 text-sm rounded-full dark:bg-slate-800 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors duration-200">Endpoint
+                                        Security</span>
+                                    <span
+                                        class="px-4 py-2 bg-gray-100 text-slate-950 text-sm rounded-full dark:bg-slate-800 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors duration-200">Threat
+                                        Detection</span>
+                                    <span
+                                        class="px-4 py-2 bg-gray-100 text-slate-950 text-sm rounded-full dark:bg-slate-800 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors duration-200">Computer
+                                        Security Awareness Training</span>
+                                    <span
+                                        class="px-4 py-2 bg-gray-100 text-slate-950 text-sm rounded-full dark:bg-slate-800 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors duration-200">Encryption</span>
+                                </div>
+                                <div class="flex gap-4 flex-wrap">
+                                    <span
+                                        class="px-4 py-2 bg-gray-100 text-slate-950 text-sm rounded-full dark:bg-slate-800 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors duration-200">Multi-Factor
+                                        Authentication</span>
+                                    <span
+                                        class="px-4 py-2 bg-gray-100 text-slate-950 text-sm rounded-full dark:bg-slate-800 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors duration-200">Data
+                                        Security</span>
+                                    <span
+                                        class="px-4 py-2 bg-gray-100 text-slate-950 text-sm rounded-full dark:bg-slate-800 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors duration-200">Personally
+                                        Identifiable Information</span>
+                                    <span class="px-3 py-1 text-slate-950 text-sm rounded-full dark:text-gray-50">
+                                        <a href="#" class="text-blue-400">View all skills<i
+                                                class="fa-solid fa-arrow-right ml-2"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3
+                                class="text-2xl text-gray-900 dark:text-gray-50 font-bold my-6 pb-2 border-b border-gray-200 dark:border-gray-700">
+                                Details to know
+                            </h3>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-6 md:max-w-full lg:max-w-[60%]">
+                                <div
+                                    class="notification bg-gray-50 py-4 border-gray-100 shadow-lg flex flex-col items-center text-center border rounded-xl transition duration-300 ease-in-out dark:bg-slate-950 dark:border-gray-800 dark:shadow-xl hover:shadow-blue-500/20 hover:dark:shadow-blue-500/20 hover:shadow-2xl">
+                                    <div class="card-icon-container mb-2">
+                                        <i class="fa-brands fa-linkedin text-lg text-blue-500"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="card-title text-lg font-semibold text-gray-900 dark:text-gray-50">
+                                            Shareable certificate</p>
+                                        <p class="card-body text-sm text-gray-600 dark:text-gray-300 mt-1">Add to your
+                                            LinkedIn profile
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="notification bg-gray-50 py-4 border-gray-100 shadow-lg flex flex-col items-center text-center border rounded-xl transition duration-300 ease-in-out dark:bg-slate-950 dark:border-gray-800 dark:shadow-xl hover:shadow-cyan-500/20 hover:dark:shadow-cyan-500/20 hover:shadow-2xl">
+                                    <div class="card-icon-container mb-2">
+                                        <i class="fa-solid fa-clipboard text-lg text-cyan-500"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="card-title text-lg font-semibold text-gray-900 dark:text-gray-50">
+                                            Assessments</p>
+                                        <p class="card-body text-sm text-gray-600 dark:text-gray-300 mt-1">Available
+                                            7 assignments</p>
+                                        <a href="#"
+                                            class="text-sm font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 transition">
+                                            AI Graded see disclaimer
+                                        </a>
+                                    </div>
+                                </div>
+                                <div
+                                    class="notification bg-gray-50 py-4 border-gray-100 shadow-lg flex flex-col items-center text-center border rounded-xl transition duration-300 ease-in-out dark:bg-slate-950 dark:border-gray-800 dark:shadow-xl hover:shadow-purple-500/20 hover:dark:shadow-purple-500/20 hover:shadow-2xl">
+                                    <div class="card-icon-container mb-2">
+                                        <i class="fa-solid fa-language text-lg text-purple-500"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <p class="card-title text-lg font-semibold text-gray-900 dark:text-gray-50">
+                                            Taught in English</p>
+                                        <p class="card-body text-sm text-gray-600 dark:text-gray-300 mt-1">Available
+                                            with Subtitles</p>
+                                        <a href="#"
+                                            class="text-sm font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 transition">
+                                            27 languages available
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden p-4 rounded-lg" id="outcomes" role="tabpanel" aria-labelledby="outcomes-tab">
+                        <h3
+                            class="text-2xl text-gray-900 dark:text-gray-50 font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700">
+                            Build your subject-matter
+                            expertise</h3>
+                        <p class="text-xl ext-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                            This course is available as part of <a href="#"><strong
+                                    class="font-bold text-blue-400">multiple
+                                    programs</strong></a>
+                            When you enroll in this course, you'll also be asked to select a specific program.
+                        </p>
+                        <hr class="line text-gray-500 dark:text-gray-50" />
+                        <ul class="px-0 md:px-5 my-5 space-y-3" role="list" aria-label="Course benefits">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-lg text-blue-500 shrink-0 mt-1 mr-3"></i>
+                                <p class="text-lg text-gray-700 dark:text-gray-300">
+                                    Learn new concepts from industry experts
+                                </p>
+                            </li>
+
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-lg text-blue-500 shrink-0 mt-1 mr-3"></i>
+                                <p class="text-lg text-gray-700 dark:text-gray-300">
+                                    Gain a foundational understanding of a subject or tool
+                                </p>
+                            </li>
+
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-lg text-blue-500 shrink-0 mt-1 mr-3"></i>
+                                <p class="text-lg text-gray-700 dark:text-gray-300">
+                                    Develop job-relevant skills with hands-on projects
+                                </p>
+                            </li>
+
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-lg text-blue-500 shrink-0 mt-1 mr-3"></i>
+                                <p class="text-lg text-gray-700 dark:text-gray-300">
+                                    Earn a shareable career certificate
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="hidden md:p-4 rounded-lg" id="modules" role="tabpanel" aria-labelledby="modules-tab">
+                        <h3 class="text-xl text-gray-900 dark:text-gray-50 font-bold mb-5">There are 4 modules in this
+                            course</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                            Ready to build essential cybersecurity skills employers need? This beginner course
+                            introduces the foundational concepts, tools, and best practices used by cybersecurity
+                            professionals. During the course, you'll learn to identify common threats such as data
+                            theft, tampering, phishing, and malware. You'll discover how cyberattacks unfold and explore
+                            the physical, environmental, and access control measures used to secure devices and
+                            facilities. Plus, you'll develop strong digital hygiene habits using secure passwords,
+                            password management techniques, and multi-factor authentication, and understand the risks of
+                            password reuse, sharing, and default credentials. You'll also practice device hardening, use
+                            encryption tools, apply safe browsing techniques, and configure web browsers to minimize
+                            vulnerabilities. Hands-on labs provide practical experience, and a final project tests your
+                            proficiency across key cybersecurity topics.
+                        </p>
+                        <div id="module-accordion" data-accordion="collapse"
+                            data-active-classes="bg-blue-50 dark:bg-gray-800 text-blue-600 dark:text-white">
+
+                            <div class="mb-4 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                                <h2 id="module-heading-1">
+                                    <button type="button"
+                                        class="flex items-center justify-between w-full p-5 font-medium text-left"
+                                        data-accordion-target="#module-body-1" aria-expanded="false"
+                                        aria-controls="module-body-1">
+                                        <div class="flex flex-col gap-2">
+                                            <span class="text-lg font-semibold text-slate-900 dark:text-white">
+                                                Common Security Threats and Risks
+                                            </span>
+                                            <span
+                                                class="text-sm font-normal text-slate-900 dark:text-gray-50 md:ml-3 md:pl-3 md:border-l md:border-gray-300 dark:md:border-gray-600 mt-1 md:mt-0">
+                                                Module 1 • 3 hours to complete
+                                            </span>
+                                        </div>
+
+                                        <div class="flex items-center space-x-3 text-gray-400 dark:text-gray-500">
+                                            <i class="fa-solid fa-circle-info w-5 h-5 hover:text-blue-500 cursor-pointer"
+                                                title="More details"></i>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0 rotate-180" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </h2>
+
+                                <div id="module-body-1" class="hidden border-t border-gray-200 dark:border-gray-700"
+                                    aria-labelledby="module-heading-1">
+                                    <div class="p-5 bg-white dark:bg-gray-900">
+                                        <p class="text-gray-700 dark:text-gray-200">
+                                            Cybersecurity is the practice of protecting systems, networks, and
+                                            programs
+                                            from digital attacks. These attacks typically include business
+                                            interruptions
+                                            or the theft, tampering, or destruction of sensitive information.
+                                            Ransomware
+                                            attacks are on the rise and are predicted to cost victims more than $265
+                                            billion (USD) annually by 2031. And that is just one type of threat we
+                                            all
+                                            need to protect against. In this module, you’ll explore physical
+                                            security,
+                                            environmental and access control measures, and various steps for
+                                            physical
+                                            incidents. You’ll gain insights on how to identify basic security
+                                            threats
+                                            and choose the best security practices to address those threats. You’ll
+                                            also
+                                            learn how to manage password and the risks of password reuse, sharing,
+                                            and
+                                            default credentials. This module will also cover how encryption is
+                                            essential
+                                            for data security and business continuity. Additionally, you’ll learn
+                                            the
+                                            difference between data, information, and insights and how companies
+                                            leverage all three to help guide their business decisions. You’ll learn
+                                            how
+                                            to maintain data integrity and keep data confidential. You’ll also begin
+                                            to
+                                            learn about the different types of attacks and breaches that threaten
+                                            today’s organizations and their data.
+                                        </p>
+
+                                        <div class="my-6 space-y-4">
+                                            <h3 class="font-extrabold text-gray-700 dark:text-gray-300">What's
+                                                included
+                                                ?</h3>
+                                            <div
+                                                class="flex flex-wrap items-center gap-4 text-gray-700 dark:text-gray-300 font-semibold">
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-video text-blue-500"></i> 7 videos
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-book-open text-blue-500"></i> 4 readings
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-list-check text-blue-500"></i> 2
+                                                    assignments
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-tablet-screen-button text-blue-500"></i> 2
+                                                    app
+                                                    items
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-plug text-blue-500"></i> 6 plugins
+                                                </span>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-video text-blue-500 mr-2"></i> 7 videos •
+                                                    Total
+                                                    43 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Course Introduction</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 3 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Confidentiality, Integrity, and Availability</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Security and Information Privacy</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 8
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Threats and Breaches</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 7 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Microsoft Windows Server Lab Environment</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 2 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Threat Types</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 8 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Phishing, Social Engineering, and Other Attacks</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 6 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-book-open text-blue-500 mr-2"></i> 4
+                                                    readings
+                                                    • Total 19 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Course Overview</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 10 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Case Study</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Windows Defender Antivirus</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 3
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Summary & Highlights</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 1 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-list-check text-blue-500 mr-2"></i> 2
+                                                    assignments •
+                                                    Total
+                                                    40 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Graded Quiz: Common Security Threats and Risks</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 30 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Practice Quiz: Common Security Threats and
+                                                            Risks</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 10 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-tablet-screen-button text-blue-500 mr-2"></i>
+                                                    2 app
+                                                    items • Total
+                                                    65 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Hands-on Lab: Windows Update</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 45
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Hands-on Lab: Windows Defender Antivirus</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 20 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-plug text-blue-500 mr-2"></i> 6 plugins •
+                                                    Total
+                                                    50 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Activity: Exploring Information Privacy</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Reading: Intellectual Property and Types of
+                                                            Confidential
+                                                            Information</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Activity: Identifying an Attack</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 15
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Reading: Physical Security for Computing
+                                                            Devices</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Activity: Identifying Malware Threats</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Just for Fun - Hands-on Lab: Hacker Typer</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i>
+                                                            15 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                                <h2 id="module-heading-2">
+                                    <button type="button"
+                                        class="flex items-center justify-between w-full p-5 font-medium text-left"
+                                        data-accordion-target="#module-body-2" aria-expanded="false"
+                                        aria-controls="module-body-2">
+                                        <div class="flex flex-col gap-2">
+                                            <span class="text-lg font-semibold text-slate-900 dark:text-white">
+                                                Security Best Practices
+                                            </span>
+                                            <span
+                                                class="text-sm font-normal text-gray-500 dark:text-gray-400 md:ml-3 md:pl-3 md:border-l md:border-gray-300 dark:md:border-gray-600 mt-1 md:mt-0">
+                                                Module 2 • 3 hours to complete
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center space-x-3 text-gray-400 dark:text-gray-500">
+                                            <i class="fa-solid fa-circle-info w-5 h-5 hover:text-blue-500 cursor-pointer"
+                                                title="More details"></i>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0 rotate-180" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </h2>
+
+                                <div id="module-body-2" class="hidden border-t border-gray-200 dark:border-gray-700"
+                                    aria-labelledby="module-heading-2">
+                                    <div class="p-5 bg-white dark:bg-gray-900">
+                                        <p class="text-gray-700 dark:text-gray-200">
+                                            Unfortunately, there’s no single solution for effective cybersecurity. The
+                                            best practice is to use multiple layers of security. Some great first steps
+                                            you can take to improve security and build a solid foundation to protect
+                                            against cyberattacks are to use strong passwords, good password management,
+                                            and multi-factor authentication. You should also limit access to data and
+                                            resources to only those people who need them. Your security plan can be
+                                            further rounded out and strengthened by using techniques such as device
+                                            hardening, and encryption, and by educating employees about cyberthreats as
+                                            a regular part of their training.  This week, you’ll learn more about
+                                            security, including password management, creating effective passwords, and
+                                            securing devices. You’ll learn the differences between authentication,
+                                            authorization, and accounting, and how these concepts help secure devices
+                                            and validate logons. You’ll also learn how encryption can help secure data
+                                            transmissions and how to manage email and spam.
+                                        </p>
+
+                                        <div class="my-6 space-y-4">
+                                            <h3 class="font-extrabold text-gray-700 dark:text-gray-300">What's
+                                                included
+                                                ?</h3>
+                                            <div
+                                                class="flex flex-wrap items-center gap-4 text-gray-700 dark:text-gray-300 font-semibold">
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-video text-blue-500"></i> 7 videos
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-book-open text-blue-500"></i> 2 readings
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-list-check text-blue-500"></i> 2
+                                                    assignments
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-tablet-screen-button text-blue-500"></i> 2
+                                                    app
+                                                    items
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-plug text-blue-500"></i> 3 plugins
+                                                </span>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-video text-blue-500 mr-2"></i> 7 videos •
+                                                    Total
+                                                    42 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Password Management Techniques</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Authentication and SSO</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 4 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Security Threats: Access Control, Authorization, and
+                                                            Authentication</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 6
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Hardening Devices</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 8 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Security Threats: Validation and Device Usage</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Security Threats: Encryption Concepts</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 7 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Managing Email and Spam</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 4 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-book-open text-blue-500 mr-2"></i> 2
+                                                    readings
+                                                    • Total 4 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Firewalls</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 3 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Summary & Highlights</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 1 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-list-check text-blue-500 mr-2"></i> 2
+                                                    assignments •
+                                                    Total
+                                                    40 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Graded Quiz: Security Best Practices</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 30 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Practice Quiz: Security Best Practices</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 10 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-tablet-screen-button text-blue-500 mr-2"></i>
+                                                    2 app
+                                                    items • Total
+                                                    105 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Hands-on Lab: Enforce Strong Password Policies</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 60
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Hands-on Lab: Windows Firewall with Advanced
+                                                            Security</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 45 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-plug text-blue-500 mr-2"></i> 3 plugins •
+                                                    Total
+                                                    15 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Activity: Identifying Phishing Attempts</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Reading: Data continuity and Encryption</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Reading: Password Management</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                                <h2 id="module-heading-3">
+                                    <button type="button"
+                                        class="flex items-center justify-between w-full p-5 font-medium text-left"
+                                        data-accordion-target="#module-body-3" aria-expanded="false"
+                                        aria-controls="module-body-3">
+                                        <div class="flex flex-col gap-2">
+                                            <span class="text-lg font-semibold text-slate-900 dark:text-white">
+                                                Safe Browsing Practices
+                                            </span>
+                                            <span
+                                                class="text-sm font-normal text-gray-500 dark:text-gray-400 md:ml-3 md:pl-3 md:border-l md:border-gray-300 dark:md:border-gray-600 mt-1 md:mt-0">
+                                                Module 3 • 2 hours to complete
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center space-x-3 text-gray-400 dark:text-gray-500">
+                                            <i class="fa-solid fa-circle-info w-5 h-5 hover:text-blue-500 cursor-pointer"
+                                                title="More details"></i>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0 rotate-180" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </h2>
+
+                                <div id="module-body-3" class="hidden border-t border-gray-200 dark:border-gray-700"
+                                    aria-labelledby="module-heading-3">
+                                    <div class="p-5 bg-white dark:bg-gray-900">
+                                        <p class="text-gray-700 dark:text-gray-200">
+                                            From people, to computers, to mobile phones, and the Internet of Things,
+                                            everything is connected. Today there are more devices than people. For some,
+                                            mobile phones and tablets have replaced traditional desktop computers and
+                                            laptops. The web is where people and businesses get things done and it’s
+                                            always on, 24 hours a day. The Internet can be an awesome place to go for
+                                            entertainment, learning, and other online experiences. But the Internet
+                                            isn’t safe. Hackers, phishing, identity theft, security leaks, privacy
+                                            issues, and more are valid reasons to consistently practice safe browsing to
+                                            protect yourself. This week, you will learn about safety concerns with
+                                            applications and public browsing, including managing plug-ins, extensions,
+                                            and toolbars. You will learn about web browser security configurations,
+                                            cookies, and computer caches.
+                                        </p>
+
+                                        <div class="my-6 space-y-4">
+                                            <h3 class="font-extrabold text-gray-700 dark:text-gray-300">What's
+                                                included
+                                                ?</h3>
+                                            <div
+                                                class="flex flex-wrap items-center gap-4 text-gray-700 dark:text-gray-300 font-semibold">
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-video text-blue-500"></i> 5 videos
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-book-open text-blue-500"></i> 1 readings
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-list-check text-blue-500"></i> 2
+                                                    assignments
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-tablet-screen-button text-blue-500"></i> 1
+                                                    app
+                                                    items
+                                                </span>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-video text-blue-500 mr-2"></i> 5 videos •
+                                                    Total
+                                                    31 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Safe Browsing Practices: Application Ecosystem
+                                                            Security</span> <span><i class="fa-solid fa-eye ml-2"></i> 6
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Safe Browsing Practices: Public Browsing Risks</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 6 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Safe Browsing Practices: Plug-ins, Extensions, and
+                                                            Toolbars</span> <span><i class="fa-solid fa-eye ml-2"></i> 6
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Security Threats: Safe Browsing Techniques</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 6 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Virtual Private Networks</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-book-open text-blue-500 mr-2"></i> 1
+                                                    readings
+                                                    • Total 3 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Summary & Highlights</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 3 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-list-check text-blue-500 mr-2"></i> 2
+                                                    assignments •
+                                                    Total
+                                                    40 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Graded Quiz: Safe Browsing Practices</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 30 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Practice Quiz: Safe Browsing Practices</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 10 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-tablet-screen-button text-blue-500 mr-2"></i>
+                                                    1 app
+                                                    items • Total
+                                                    60 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Hands-on Lab: Managing Browser Security and Privacy
+                                                            Settings</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 60
+                                                            minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-plug text-blue-500 mr-2"></i> 3 plugins •
+                                                    Total
+                                                    15 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Activity: Identifying Phishing Attempts</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Reading: Data continuity and Encryption</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Reading: Password Management</span> <span><i
+                                                                class="fa-solid fa-eye ml-2"></i> 5 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                                <h2 id="module-heading-4">
+                                    <button type="button"
+                                        class="flex items-center justify-between w-full p-5 font-medium text-left"
+                                        data-accordion-target="#module-body-4" aria-expanded="false"
+                                        aria-controls="module-body-4">
+                                        <div class="flex flex-col gap-2">
+                                            <span class="text-lg font-semibold text-slate-900 dark:text-white">
+                                                Final Exam and Project
+                                            </span>
+                                            <span
+                                                class="text-sm font-normal text-gray-500 dark:text-gray-400 md:ml-3 md:pl-3 md:border-l md:border-gray-300 dark:md:border-gray-600 mt-1 md:mt-0">
+                                                Module 4 • 3 hours to complete
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center space-x-3 text-gray-400 dark:text-gray-500">
+                                            <i class="fa-solid fa-circle-info w-5 h-5 hover:text-blue-500 cursor-pointer"
+                                                title="More details"></i>
+                                            <svg data-accordion-icon class="w-4 h-4 shrink-0 rotate-180" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </h2>
+
+                                <div id="module-body-4" class="hidden border-t border-gray-200 dark:border-gray-700"
+                                    aria-labelledby="module-heading-3">
+                                    <div class="p-5 bg-white dark:bg-gray-900">
+                                        <p class="text-gray-700 dark:text-gray-200">
+                                            In this module, you will explore major data breach case studies and gain
+                                            insights into common data vulnerabilities. You will attempt a final quiz
+                                            based on the previous three modules, followed by a final hands-on project
+                                            where you will resolve three IT support tickets by troubleshooting Windows
+                                            updates, clearing the browser cache, and configuring the Windows Defender
+                                            Firewall in a Windows Server environment. Screenshots from the lab will be
+                                            uploaded and evaluated by an AI grading tool.
+                                        </p>
+
+                                        <div class="my-6 space-y-4">
+                                            <h3 class="font-extrabold text-gray-700 dark:text-gray-300">What's
+                                                included
+                                                ?</h3>
+                                            <div
+                                                class="flex flex-wrap items-center gap-4 text-gray-700 dark:text-gray-300 font-semibold">
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-book-open text-blue-500"></i> 3 readings
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-list-check text-blue-500"></i> 1
+                                                    assignments
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-tablet-screen-button text-blue-500"></i> 2
+                                                    app
+                                                    items
+                                                </span>
+                                                <span class="flex items-center gap-1">
+                                                    <i class="fa-solid fa-plug text-blue-500"></i> 2
+                                                    plugins
+                                                </span>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-book-open text-blue-500 mr-2"></i> 3
+                                                    readings
+                                                    • Total 14 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>About this Project</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 10 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Congrats & Next Steps</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 3 minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Thanks from the Course Team</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 1 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-list-check text-blue-500 mr-2"></i> 1
+                                                    assignments •
+                                                    Total
+                                                    60 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Final Exam</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 60 minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t pt-4 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-tablet-screen-button text-blue-500 mr-2"></i>
+                                                    2 app
+                                                    items • Total
+                                                    120 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Hands-on Lab: Perform Final Project Tasks</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 60
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Final Project Submission and Evaluation</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 60
+                                                            minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="border-t py-2 border-gray-200 dark:border-gray-700">
+                                                <p
+                                                    class="flex items-center gap-1 text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-2">
+                                                    <i class="fa-solid fa-plug text-blue-500 mr-2"></i>
+                                                    2 plugins • Total 23 minutes
+                                                </p>
+
+                                                <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Case Study: Data Breach Yahoo!</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 8
+                                                            minutes</span>
+                                                    </li>
+                                                    <li class="flex justify-between items-center text-sm md:text-base">
+                                                        <span>Glossary: Introduction to Cybersecurity Essentials</span>
+                                                        <span><i class="fa-solid fa-eye ml-2"></i> 15
+                                                            minutes</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-row items-start p-5 bg-white dark:bg-slate-950 border-t border-gray-200 rounded-lg dark:border-gray-700">
+
+                                <div class="shrink-0 pt-1 mr-4">
+                                    <i class="fa-solid fa-trophy text-yellow-500"></i>
+                                </div>
+
+                                <div class="flex flex-col grow">
+                                    <span class="text-3xl font-semibold text-gray-900 dark:text-white mb-1">
+                                        Earn a career certificate
+                                    </span>
+
+                                    <span class="text-lg font-normal text-gray-500 dark:text-gray-400">
+                                        Add this credential to your LinkedIn profile, resume, or CV. Share it on
+                                        social media and in your performance review.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-summary mb-5 w-full md:w-1/2 lg:w-2/5 xl:w-1/3 mx-auto md:mx-0 px-5">
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mt-5 mb-6">
+                        Learner Reviews
+                    </h2>
+
+                    <div class="flex items-center gap-6 mb-8">
+                        <h3 class="text-5xl font-extrabold text-blue-600 dark:text-blue-400">
+                            <i class="fa-solid fa-star text-lg text-yellow-400 mr-4"></i>4.8
+                        </h3>
+
+                        <div class="flex flex-col">
+                            <div class="flex gap-1.5 text-yellow-400">
+                                <i class="fa-solid fa-star text-lg"></i>
+                                <i class="fa-solid fa-star text-lg"></i>
+                                <i class="fa-solid fa-star text-lg"></i>
+                                <i class="fa-solid fa-star text-lg"></i>
+                                <i class="fa-solid fa-star-half-stroke text-lg"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                                Based on 1.085 reviews
+                            </span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="rating-breakdown space-y-3 p-5 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-gray-100 dark:border-slate-950">
+
+                        <div class="flex items-center gap-3">
+                            <span class="text-base font-semibold w-6 text-gray-900 dark:text-white">5</span>
+                            <div class="flex gap-1 text-yellow-500 w-10 justify-end">
+                                <i class="fa-solid fa-star text-sm"></i>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-700"
+                                    style="width: 85.63%;"></div>
+                            </div>
+                            <span
+                                class="text-base font-semibold w-10 text-right text-gray-700 dark:text-gray-300">85.63%</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <span class="text-base font-semibold w-6 text-gray-900 dark:text-white">4</span>
+                            <div class="flex gap-1 text-yellow-500 w-10 justify-end">
+                                <i class="fa-solid fa-star text-sm"></i>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-700"
+                                    style="width: 11.34%;"></div>
+                            </div>
+                            <span
+                                class="text-base font-semibold w-10 text-right text-gray-700 dark:text-gray-300">11.34%</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <span class="text-base font-semibold w-6 text-gray-900 dark:text-white">3</span>
+                            <div class="flex gap-1 text-yellow-500 w-10 justify-end">
+                                <i class="fa-solid fa-star text-sm"></i>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-700"
+                                    style="width: 2.01%;"></div>
+                            </div>
+                            <span
+                                class="text-base font-semibold w-10 text-right text-gray-700 dark:text-gray-300">2.01%</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <span class="text-base font-semibold w-6 text-gray-900 dark:text-white">2</span>
+                            <div class="flex gap-1 text-yellow-500 w-10 justify-end">
+                                <i class="fa-solid fa-star text-sm"></i>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-700"
+                                    style="width: 0.36%;"></div>
+                            </div>
+                            <span
+                                class="text-base font-semibold w-10 text-right text-gray-700 dark:text-gray-300">0.36%</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <span class="text-base font-semibold w-6 text-gray-900 dark:text-white">1</span>
+                            <div class="flex gap-1 text-yellow-500 w-10 justify-end">
+                                <i class="fa-solid fa-star text-sm"></i>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-700"
+                                    style="width: 0.64%;"></div>
+                            </div>
+                            <span
+                                class="text-base font-semibold w-10 text-right text-gray-700 dark:text-gray-300">0.64%</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Content course -->
+
+    <!-- Start Footer Section -->
+    <footer class="py-10 bg-[#050B1E] border-t border-cyan-400">
+        <div
+            class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-4 sm:px-6 lg:px-8 text-center md:text-left">
+
+            <div class="first-section flex flex-col items-center md:items-start">
+                <a href="../dist/index.html"
+                    class="flex items-center space-x-3 rtl:space-x-reverse justify-center md:justify-start">
+                    <img src="assets/images/Logo.webp" class="h-10 w-10" loading="lazy" alt="Logo CyberMentor" />
+                    <span class="logo bg-clip-text text-transparent animate-pulse self-center text-2xl font-semibold whitespace-nowrap
+                           bg-linear-to-r from-purple-900 via-cyan-400 to-blue-400">CyberMentor</span>
+                </a>
+                <p class="mt-5 text-2xl lg:text-xl text-gray-300 w-full">
+                    Leading cybersecurity solutions provider protecting businesses worldwide.
+                </p>
+                <h3 class="text-gray-300 text-md font-bold mt-4">
+                    Subscribe to our Newsletter
+                </h3>
+                <p class="mt-2 text-md text-gray-300 w-full">
+                    Stay updated with the latest security insights and threats.
+                </p>
+
+                <form class="w-full max-w-md my-5 mx-auto md:mx-0">
+                    <label for="default-email" class="mb-2 text-sm font-medium sr-only text-white"></label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 rtl:inset-x-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor" viewBox="0 0 20 16">
+                                <path
+                                    d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path
+                                    d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                        </div>
+                        <input type="email" id="default-email"
+                            class="caret-gray-100 text-gray-100 block w-full p-4 ps-10 text-sm border rounded-3xl bg-slate-950 border-gray-700 placeholder-gray-400"
+                            placeholder="Enter your email..." required />
+                        <button type="submit"
+                            class="btn text-white text-[12px] md:text-md absolute end-2.5 bottom-2 px-2 py-2 cursor-pointer">
+                            <strong class="z-10">SUBSCRIBE</strong>
+                            <div id="container-stars">
+                                <div id="stars"></div>
+                            </div>
+                            <div id="glow">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="second-section">
+                <h3 class="text-gray-300 text-2xl font-bold mb-4">
+                    Learning
+                </h3>
+                <ul class="flex flex-col gap-2 items-center md:items-start">
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Cloud Security</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">DevSecOps</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Vulnerability
+                            Management</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Managed SOC</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Penetration Testing</a>
+                    </li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Cyber Awareness
+                            Training</a></li>
+                </ul>
+            </div>
+
+            <div class="second-section">
+                <h3 class="text-gray-300 text-2xl font-bold mb-4">
+                    Company
+                </h3>
+                <ul class="flex flex-col gap-2 items-center md:items-start">
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">About Us</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Tools</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Internships</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Blog</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Work at CyberMentor</a>
+                    </li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Careers in Cyber</a></li>
+                </ul>
+            </div>
+
+            <div class="three-section">
+                <h3 class="text-gray-300 text-2xl font-bold mb-4">
+                    CyberMentorverse
+                </h3>
+                <ul class="flex flex-col gap-2 items-center md:items-start">
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Books</a></li>
+                    <li class="text-gray-300 text-lg"><a class="hover:text-cyan-400" href="">Platform</a></li>
+                    <li class="text-gray-300 text-lg">
+                        <a class="hover:text-cyan-400" href="">Follow Us</a>
+                        <div class="flex gap-5 my-5 justify-center md:justify-start">
+                            <button class="Btn instagram-btn">
+                                <span class="Container"><i class="fa-brands fa-instagram"></i></span>
+                                <span class="BG"></span>
+                            </button>
+                            <button class="Btn facebook-btn">
+                                <span class="Container"><i class="fa-brands fa-square-facebook"></i></span>
+                                <span class="BG"></span>
+                            </button>
+                            <button class="Btn linkedin-btn">
+                                <span class="Container"><i class="fa-brands fa-linkedin"></i></span>
+                                <span class="BG"></span>
+                            </button>
+                            <button class="Btn github-btn">
+                                <span class="Container w-20"><i class="fa-brands fa-github"></i></span>
+                                <span class="BG"></span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto flex flex-col items-center mt-8 px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-cyan-500 w-[95%]"></div>
+            <p class="mt-4 text-xl md:text-2xl lg:text-lg text-slate-300">All systems operational</p>
+            <p class="mt-2 text-xl md:text-2xl lg:text-lg text-slate-300">&copy; 2025 Cyberpedia. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
